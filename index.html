@@ -135,23 +135,58 @@
           </tr>
         </tbody></table>
 
-       
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>News</heading>
-              
 
-              <p><li> <b>Oct. 2021</b>: &nbsp One paper is accepted to SII 2022!</li></p>
-              <p><li> <b>Jul. 2021</b>: &nbsp One paper is accepted to CDC 2021!</li></p>
-              <p><li> <b>Feb. 2020</b>: &nbsp One paper is accepted to IFAC 2020!</li></p>
-              <p><li> <b>Feb 2019</b>: &nbsp Participated RVSS2019 summer school in Canberra, Australia!</li></p>
-              
-            </td>
-          </tr>
-        </tbody></table>
-
+        <style>
+          .news-container {
+              width: 100%;
+              max-height: 120px; /* Adjust the height as needed */
+              overflow: auto;
+          }
+          .news-list {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+          }
+        </style>
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+                <tr>
+                    <td style="padding:20px;width:100%;vertical-align:middle">
+                        <heading>News</heading>
+                        <p></p>
+                        <p></p>
+                        <div class="news-container">
+                            <ul class="news-list">
+                                <li><b>Feb. 2023:</b> One paper is accepted to CVPR 2023!</li>
+                                <li><b>Oct. 2022:</b> One paper is accepted to ICMVA 2023!</li>
+                                <li><b>Oct. 2021:</b> One paper is accepted to SII 2022!</li>
+                                <li><b>Jul. 2021:</b> One paper is accepted to CDC 2021!</li>
+                                <li><b>Feb. 2020:</b> One paper is accepted to IFAC 2020!</li>
+                                <li><b>Feb. 2019:</b> Participated RVSS2019 summer school in Canberra, Australia!</li>
+                            </ul>
+                        </div>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script>
+            const newsContainer = document.querySelector('.news-container');
+            const newsList = document.querySelector('.news-list');
+            
+            // Set the default display to show 4 rows
+            newsList.style.maxHeight = '80px'; /* Adjust the height as needed */
+            
+            // Check if the content overflows, if so, add a scrolling bar
+            if (newsList.scrollHeight > newsList.clientHeight) {
+                newsContainer.style.overflowY = 'scroll';
+            }
+        </script>
+        
+      
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -165,7 +200,9 @@
             </td>
           </tr>
         </tbody></table>
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
+
+
+        <!-- <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
           <tr>
             <td>
               <heading>Pre-prints</heading>
@@ -187,13 +224,12 @@
               <strong>Ruijie Ren*</strong>, Mohit Gurnani Rajesh*, Jordi Sanchez-Riera, Adrian Lopez-Rodriguez, Yurun Tian, Antonio Agudo, Yiannis Demiris, Krystian Mikolajczyk, Francesc Moreno-Noguer<br> (* indicates equal contribution)
               <br>
               <em>Arxiv</em>, 2021 (In submission)
-              <!-- <p>We use computer vision techniques to identify and remove diffraction spikes and reflection halos in the USNO-B Catalog.</p> -->
               <br>
               <a href="https://arxiv.org/abs/2110.02903" target="_blank">[pdf]</a>
 
             </td>
           </tr>
-        </tbody></table>
+        </tbody></table> -->
 
 
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
@@ -204,6 +240,45 @@
           </tr>
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src="pub/cvpr23.png" alt="clean-usnob" width="250" height="200" class="img-responsive">
+            </td>
+            <td width="75%" valign="middle">
+              <a>
+                <papertitle>3D Semantic Segmentation in the Wild: Learning Generalized Models for Adverse-Condition Point Clouds</papertitle>
+              </a>
+              <br>
+              Aoran Xiao, Jiaxing Huang, Weihao Xuan, <strong>Ruijie Ren</strong>, Kangcheng Liu, Dayan Guan, Abdulmotaleb El Saddik, Shijian Lu, Eric Xing
+              <br>
+              <em>IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR)</em>, 2023
+              <!-- <p>We use computer vision techniques to identify and remove diffraction spikes and reflection halos in the USNO-B Catalog.</p> -->
+              <br>
+              <a href="https://arxiv.org/abs/2304.00690" target="_blank">[pdf]</a>
+              <!-- <a href="https://github.com/xiaoaoran/SemanticSTF" target="_blank">[code]</a> -->
+
+            </td>
+          </tr>
+          
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src="pub/grasp_paper.png" alt="clean-usnob" width="250" height="200" class="img-responsive">
+            </td>
+            <td width="75%" valign="middle">
+              <a>
+                <papertitle>Grasp-Oriented Fine-grained Cloth Segmentation without Real Supervision</papertitle>
+              </a>
+              <br>
+              <strong>Ruijie Ren*</strong>, Mohit Gurnani Rajesh*, Jordi Sanchez-Riera, Adrian Lopez-Rodriguez, Fan Zhang, Yurun Tian, Guillem Alenya, Antonio Agudo, Yiannis Demiris, Krystian Mikolajczyk, Francesc Moreno-Noguer (* indicates equal contribution)
+              <br>
+              <em>International Conference on Machine Vision and Applications (ICMVA)</em>, 2023
+              <!-- <p>We use computer vision techniques to identify and remove diffraction spikes and reflection halos in the USNO-B Catalog.</p> -->
+              <br>
+              <a href="https://arxiv.org/abs/2110.02903" target="_blank">[pdf]</a>
+
+            </td>
+          </tr>
           
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
