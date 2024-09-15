@@ -1,14 +1,67 @@
-<!DOCTYPE HTML>
-
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Plan Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .countdown-container {
+            margin-top: 20px;
+        }
+        .countdown-item {
+            margin: 20px 0;
+            font-size: 24px;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>My plan</h1>
+    <h1>Event Countdown</h1>
+    
+    <div class="countdown-container">
+        <!-- N3 Japanese Test Countdown -->
+        <div class="countdown-item">
+            <h2>N3 Japanese Test</h2>
+            <p id="n3-countdown"></p>
+        </div>
+        
+        <!-- SIGGRAPH Submission Countdown -->
+        <div class="countdown-item">
+            <h2>SIGGRAPH Submission</h2>
+            <p id="siggraph-countdown"></p>
+        </div>
+    </div>
+
+    <script>
+        // Countdown function
+        function countdown(targetDate, elementId) {
+            const target = new Date(targetDate).getTime();
+            const countdownElement = document.getElementById(elementId);
+
+            setInterval(function() {
+                const now = new Date().getTime();
+                const distance = target - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (distance < 0) {
+                    clearInterval();
+                    countdownElement.innerHTML = "Event has passed!";
+                }
+            }, 1000);
+        }
+
+        // Event countdowns
+        countdown("2024-12-01", "n3-countdown");
+        countdown("2024-06-30", "siggraph-countdown"); // Replace with actual SIGGRAPH submission date
+    </script>
 </body>
-
-
 </html>
