@@ -118,16 +118,20 @@
         </section>
     </div>
 
-    <!-- Footer -->
-    <!-- <footer>
-        <p>&copy; 2021-2024 Ruijie's Website</p>
-    </footer> -->
-
     <!-- JavaScript Countdown -->
     <script>
-        function countdown(targetDate, elementId) {
+        // Helper function to calculate color gradient based on effort
+        function calculateColor(distance, totalDistance, effort) {
+            const red = Math.min(255, Math.floor((1 - (distance / totalDistance)) * effort * 255));
+            const green = Math.min(255, Math.floor((distance / totalDistance) * (10 - effort) * 255));
+            return `rgb(${red}, ${green}, 0)`;
+        }
+
+        function countdown(targetDate, elementId, effort) {
             const target = new Date(targetDate).getTime();
             const countdownElement = document.getElementById(elementId);
+
+            const totalDistance = target - new Date().getTime();
 
             setInterval(function() {
                 const now = new Date().getTime();
@@ -140,19 +144,23 @@
 
                 countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
+                // Change color based on distance and effort
+                countdownElement.style.color = calculateColor(distance, totalDistance, effort);
+
                 if (distance < 0) {
                     clearInterval();
                     countdownElement.innerHTML = "Event has passed!";
+                    countdownElement.style.color = "red";  // Set to red when the event has passed
                 }
             }, 1000);
         }
 
-        // Event countdowns
-        countdown("2024-12-01", "n4-countdown");
-        countdown("2024-09-25", "group-meeting-countdown");
-        countdown("2025-01-24", "siggraph-countdown");
-        countdown("2025-05-16", "siggraph-asia-countdown");
-        countdown("2025-03-09", "wedding-countdown");
+        // Event countdowns with effort values (1-10)
+        countdown("2024-12-01", "n4-countdown", 3); // N4 Japanese Test (Effort: 3/10)
+        countdown("2024-09-25", "group-meeting-countdown", 5); // Group Meeting (Effort: 5/10)
+        countdown("2025-01-24", "siggraph-countdown", 10); // SIGGRAPH Submission (Effort: 10/10)
+        countdown("2025-05-16", "siggraph-asia-countdown", 7); // SIGGRAPH Asia Submission (Effort: 7/10)
+        countdown("2025-03-09", "wedding-countdown", 1); // Wedding (Effort: 1/10)
     </script>
 
 </body>
