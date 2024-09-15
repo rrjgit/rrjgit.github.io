@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Countdown</title>
+    <title>My Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
             text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+        .container {
+            margin: 20px;
+        }
+        .section-title {
+            font-size: 28px;
+            color: #444;
+            margin-bottom: 15px;
         }
         .countdown-container {
             margin-top: 20px;
@@ -16,27 +42,82 @@
             margin: 20px 0;
             font-size: 24px;
         }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
-    <h1>Event Countdown</h1>
-    
-    <div class="countdown-container">
-        <!-- N3 Japanese Test Countdown -->
-        <div class="countdown-item">
-            <h2>N3 Japanese Test</h2>
-            <p id="n3-countdown"></p>
-        </div>
-        
-        <!-- SIGGRAPH Submission Countdown -->
-        <div class="countdown-item">
-            <h2>SIGGRAPH Submission</h2>
-            <p id="siggraph-countdown"></p>
-        </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Hi Ruijie, Don't Waste your Time!</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#japanese-skill">Japanese Skill</a>
+        <a href="#research">Research</a>
+        <a href="#personal">Personal</a>
+    </nav>
+
+    <div class="container">
+        <!-- Japanese Skill Section -->
+        <section id="japanese-skill">
+            <h2 class="section-title">Japanese Skill</h2>
+            <div class="countdown-container">
+                <!-- N4 Japanese Test Countdown -->
+                <div class="countdown-item">
+                    <h3>N4 JLPT</h3>
+                    <p id="n4-countdown"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research">
+            <h2 class="section-title">Research</h2>
+            <div class="countdown-container">
+                <!-- SIGGRAPH Submission Countdown -->
+                <div class="countdown-item">
+                    <h3>SIGGRAPH 25' Submission</h3>
+                    <p id="siggraph-countdown"></p>
+                </div>
+
+                <!-- SIGGRAPH Asia Submission Countdown -->
+                <div class="countdown-item">
+                    <h3>SIGGRAPH Asia 25' Submission</h3>
+                    <p id="siggraph-asia-countdown"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Section -->
+        <section id="personal">
+            <h2 class="section-title">Personal</h2>
+            <div class="countdown-container">
+                <!-- Wedding Countdown -->
+                <div class="countdown-item">
+                    <h3>Wedding</h3>
+                    <p id="wedding-countdown"></p>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- Footer -->
+    <!-- <footer>
+        <p>&copy; 2021-2024 Ruijie's Website</p>
+    </footer> -->
+
+    <!-- JavaScript Countdown -->
     <script>
-        // Countdown function
         function countdown(targetDate, elementId) {
             const target = new Date(targetDate).getTime();
             const countdownElement = document.getElementById(elementId);
@@ -60,8 +141,11 @@
         }
 
         // Event countdowns
-        countdown("2024-12-01", "n3-countdown");
-        countdown("2024-06-30", "siggraph-countdown"); // Replace with actual SIGGRAPH submission date
+        countdown("2024-12-01", "n4-countdown");
+        countdown("2025-01-24", "siggraph-countdown");
+        countdown("2025-05-16", "siggraph-asia-countdown");
+        countdown("2025-03-09", "wedding-countdown");
     </script>
+
 </body>
 </html>
